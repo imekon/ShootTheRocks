@@ -7,11 +7,17 @@ onready var Rock4 = load("res://scenes/Rock4.tscn")
 onready var Rock5 = load("res://scenes/Rock5.tscn")
 onready var Rock6 = load("res://scenes/Rock6.tscn")
 
+onready var rocks_label = $CanvasLayer/RocksLabel
+
 func _ready():
 	randomize()
 	generate_rocks(30)
 	var rock_count = get_tree().get_nodes_in_group("rocks").size()
 	print("number of rocks: " + str(rock_count))
+	
+func _process(delta):
+	var rocks = get_tree().get_nodes_in_group("rocks")
+	rocks_label.text = "Rocks: " + str(rocks.size())
 	
 func generate_rocks(count: int):
 	for i in range(count):
