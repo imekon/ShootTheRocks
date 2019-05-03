@@ -10,8 +10,7 @@ var tracking_ratio: float
 func _ready():
 	tracking_width = rect_size.x
 	tracking_height = rect_size.y
-	tracking_range2 = tracking_range / 2.0
-	tracking_ratio = tracking_height / tracking_range
+	set_scan_range()
 	
 func _process(delta):
 	update()
@@ -36,3 +35,22 @@ func _draw():
 			var y = (pos.y - player_pos.y) * tracking_ratio + tracking_height / 2.0
 			rect = Rect2(x - 1, y - 1, 3, 3)
 			draw_rect(rect, colour)
+			
+func set_scan_range():
+	tracking_range2 = tracking_range / 2.0
+	tracking_ratio = tracking_height / tracking_range
+	
+func set_short_range_scan():
+	tracking_range = 10000.0
+	set_scan_range()
+	
+func set_medium_range_scan():
+	tracking_range = 16000.0
+	set_scan_range()
+	
+func set_long_range_scan():
+	tracking_range = 32768.0
+	set_scan_range()
+	
+	
+	

@@ -8,6 +8,7 @@ onready var Rock5 = load("res://scenes/Rock5.tscn")
 onready var Rock6 = load("res://scenes/Rock6.tscn")
 
 onready var rocks_label = $CanvasLayer/RocksLabel
+onready var fps_label = $CanvasLayer/FPSLabel
 
 func _ready():
 	randomize()
@@ -18,6 +19,9 @@ func _ready():
 func _process(delta):
 	var rocks = get_tree().get_nodes_in_group("rocks")
 	rocks_label.text = "Rocks: " + str(rocks.size())
+	
+	var fps = Engine.get_frames_per_second()
+	fps_label.text = "FPS: " + str(fps)
 	
 func generate_rocks(count: int):
 	for i in range(count):

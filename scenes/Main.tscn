@@ -34,4 +34,24 @@ margin_bottom = 563.0
 custom_fonts/font = SubResource( 1 )
 text = "Rocks: 0"
 
-[node name="Scanner" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="FPSLabel" type="Label" parent="CanvasLayer"]
+margin_left = 890.0
+margin_top = 20.0
+margin_right = 1008.0
+margin_bottom = 53.0
+custom_fonts/font = SubResource( 1 )
+text = "FPS: 0"
+
+[node name="ShortRangeScanner" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_left = 200.0
+margin_right = 380.0
+
+[node name="MediumRangeScanner" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_left = 410.0
+margin_right = 590.0
+scanner_type = 2
+
+[node name="LongRangeScanner" parent="CanvasLayer" instance=ExtResource( 5 )]
+margin_left = 620.0
+margin_right = 800.0
+scanner_type = 3
