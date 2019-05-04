@@ -29,7 +29,7 @@ func _physics_process(delta):
 	var rot = rotation_degrees
 
 	var direction = Vector2(thrust, 0).rotated(deg2rad(rot))
-	move_and_collide(direction)
+	move_and_collide(direction, false)
 	
 	rotate(deg2rad(angle))
 

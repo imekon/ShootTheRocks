@@ -19,9 +19,8 @@ func _draw():
 	var rect = Rect2(tracking_width / 2.0, tracking_height / 2.0, 4.0, 4.0)
 	var colour = Color(1.0, 0.0, 0.0)
 	draw_rect(rect, colour)
-	
-	var players = get_tree().get_nodes_in_group("player")
-	var player = players[0]
+
+	var player = Globals.get_player()
 	var player_pos = player.position
 	
 	colour = Color(0.0, 1.0, 0.0)
