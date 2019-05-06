@@ -4,6 +4,8 @@ const MOVEMENT = 1000.0
 
 var start_time
 
+onready var explosion = $ExplosionAnimation
+
 func _ready():
 	start_time = OS.get_unix_time()
 	add_to_group("bullet")
@@ -16,8 +18,14 @@ func _physics_process(delta):
 	if collision != null && collision.collider != null:
 		if collision.collider.has_method("damage"):
 			collision.collider.damage()
-		queue_free()
+		explode()
+		# queue_free()
 	
 	var now = OS.get_unix_time()
 	if now - start_time > 1:
 		queue_free()
+		
+func explode():
+	explosion.play()
+	yield(explosion, "animation_finished")
+	queue_free()
